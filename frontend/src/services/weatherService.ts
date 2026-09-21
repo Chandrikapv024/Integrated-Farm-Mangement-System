@@ -26,9 +26,11 @@ export const MOCK_WEATHER: WeatherRecord = {
 };
 
 export const weatherService = {
-  getWeather: async (): Promise<WeatherRecord> => {
+  getWeather: async (lat?: number, lng?: number): Promise<WeatherRecord> => {
     try {
-      const res = await api.get('/weather');
+      const res = await api.get('/weather', {
+        params: { lat, lng }
+      });
       return res.data;
     } catch {
       return MOCK_WEATHER;
