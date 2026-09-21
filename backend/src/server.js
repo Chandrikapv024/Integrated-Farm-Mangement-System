@@ -13,6 +13,7 @@ const userRoutes = require('./routes/userRoutes');
 const fieldRoutes = require('./routes/fieldRoutes');
 const farmRoutes = require('./routes/farmRoutes');
 const cropRoutes = require('./routes/cropRoutes');
+const weatherRoutes = require('./routes/weatherRoutes');
 const errorHandler = require('./middleware/errorMiddleware');
 
 const app = express();
@@ -67,6 +68,7 @@ app.use('/api/fields', fieldRoutes);
 app.use('/api/field-sectors', fieldRoutes);
 app.use('/api/farms', farmRoutes);
 app.use('/api/crops', cropRoutes);
+app.use('/api/weather', weatherRoutes);
 
 
 // Centralized Error Handling Middleware
