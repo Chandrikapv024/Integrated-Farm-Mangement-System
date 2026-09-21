@@ -74,8 +74,15 @@ export const inventoryService = {
   getInventory: async (): Promise<InventoryItem[]> => {
     try {
       const res = await api.get('/inventory');
-      return res.data;
-    } catch {
+      if (Array.isArray(res.data)) {
+        return res.data.map((item: any) => ({
+          ...item,
+          id: item._id || item.id
+        }));
+      }
+      return [];
+    } catch (err) {
+      console.warn('Backend API unavailable, using local mock data:', err);
       return MOCK_INVENTORY;
     }
   },
@@ -83,7 +90,10 @@ export const inventoryService = {
   addItem: async (item: Partial<InventoryItem>): Promise<InventoryItem> => {
     try {
       const res = await api.post('/inventory', item);
-      return res.data;
+      return {
+        ...res.data,
+        id: res.data._id || res.data.id
+      };
     } catch {
       const q = item.quantity || 10;
       const r = item.reorderLevel || 5;
