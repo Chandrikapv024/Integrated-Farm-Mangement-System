@@ -19,6 +19,12 @@ const errorHandler = (err, req, res, next) => {
       .join(', ');
   }
 
+  // Handle Mongoose CastError (Malformed Object ID)
+  if (err.name === 'CastError') {
+    statusCode = 400;
+    message = `Invalid format for ${err.path}: ${err.value}`;
+  }
+
   // Handle Mongoose Duplicate Key Error (e.g. unique email)
   if (err.code && err.code === 11000) {
     statusCode = 409;

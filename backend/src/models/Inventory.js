@@ -15,6 +15,10 @@ const inventorySchema = new mongoose.Schema(
     category: {
       type: String,
       required: [true, 'Category is required'],
+      enum: {
+        values: ['Fertilizers', 'Seeds', 'Pesticides', 'Tools', 'Equipment', 'Other'],
+        message: '{VALUE} is not a valid category'
+      },
       default: 'Tools',
       trim: true
     },
