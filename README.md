@@ -656,16 +656,64 @@ The application is designed for cloud-native deployment using distributed hostin
 
 ## Contribution Guidelines
 
-Contributions from developers, data scientists, and agricultural researchers are welcome! 
+Contributions from developers, data scientists, and agricultural researchers are welcome! For full details, refer to our dedicated [CONTRIBUTING.md](CONTRIBUTING.md) guide.
 
-For comprehensive, step-by-step instructions on setting up your local development environment, environment variable configurations, branch naming conventions, commit guidelines, coding standards, and submitting pull requests, please refer to our dedicated [CONTRIBUTING.md](CONTRIBUTING.md) guide.
+### 1. Choose or Create an Issue
+- Browse existing [GitHub Issues](https://github.com/Rohith0750/Integrated-Farm-Mangement-System/issues).
+- Comment on an issue to be assigned, or open a new issue detailing your proposal/bug report.
 
-Quick Git Workflow:
-1. **Fork** the repository on GitHub.
-2. **Create a Feature Branch**: `git checkout -b feature/your-feature-name`
-3. **Commit Your Changes**: `git commit -m "feat(module): add descriptive summary of changes"`
-4. **Push to the Branch**: `git push origin feature/your-feature-name`
-5. **Open a Pull Request**: Submit your pull request against the `main` branch.
+### 2. Branch Naming Conventions
+Always create a new branch from `main`:
+- `feature/` : New UI components, endpoints, or ML features (e.g., `feature/soil-npk-chart`)
+- `fix/` : Bug fixes in code or calculation logic (e.g., `fix/jwt-auth-middleware`)
+- `docs/` : Documentation improvements (e.g., `docs/update-contributing-guide`)
+- `ml/` : Model additions, dataset pre-processing scripts (e.g., `ml/yolo-leaf-disease`)
+- `refactor/` : Code cleanup without structural behavior changes (e.g., `refactor/express-routes`)
+
+### 3. Commit Message Guidelines
+Follow [Conventional Commits](https://www.conventionalcommits.org/):
+- `feat(scope)`: A new feature
+- `fix(scope)`: A bug fix
+- `docs(scope)`: Documentation changes
+- `refactor(scope)`: Code refactoring
+- `test(scope)`: Test additions/changes
+- `chore(scope)`: Dependency updates or config changes
+
+*Examples:*
+```bash
+git commit -m "feat(frontend): add interactive field map component using Leaflet"
+git commit -m "fix(backend): correct JWT token expiration header handling"
+```
+
+### 4. Git Workflow & Submitting a Pull Request (PR)
+
+```bash
+# 1. Fork and Clone the repository
+git clone https://github.com/YOUR_USERNAME/Integrated-Farm-Mangement-System.git
+cd Integrated-Farm-Mangement-System
+
+# 2. Set upstream remote to sync with the main repository
+git remote add upstream https://github.com/Rohith0750/Integrated-Farm-Mangement-System.git
+
+# 3. Create a new branch
+git checkout -b feature/your-feature-name
+
+# 4. Stage and Commit your changes
+git add .
+git commit -m "feat(scope): detailed message"
+
+# 5. Keep your branch updated with upstream main
+git fetch upstream
+git rebase upstream/main
+
+# 6. Push changes to your GitHub fork
+git push origin feature/your-feature-name
+```
+
+7. **Open a Pull Request**:
+   - Go to [Rohith0750/Integrated-Farm-Mangement-System](https://github.com/Rohith0750/Integrated-Farm-Mangement-System).
+   - Click **New Pull Request** -> Select your fork and branch.
+   - Fill out the PR summary, related issue numbers (e.g., `Fixes #12`), and testing details.
 
 ---
 
